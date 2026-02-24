@@ -6,7 +6,9 @@ import {
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { FactBookingStatus } from 'src/fact-booking-status/entities/fact-booking-status.entity';
 import { FactRevenueAnalysis } from 'src/fact-revenue-analysis/entities/fact-revenue-analysis.entity';
+import { FactTripPerformance } from 'src/fact-trip-performance/entities/fact-trip-performance.entity';
 
 @Table({
   tableName: 'DimDate',
@@ -37,5 +39,11 @@ export class DimDate extends Model<DimDate> {
   Year!: number;
 
   @HasMany(() => FactRevenueAnalysis)
-  Facts?: FactRevenueAnalysis[];
+  FactsRevenue?: FactRevenueAnalysis[];
+
+  @HasMany(() => FactTripPerformance)
+  FactsTrip?: FactTripPerformance[];
+
+  @HasMany(() => FactBookingStatus)
+  FactsBookingStatus?: FactBookingStatus[];
 }

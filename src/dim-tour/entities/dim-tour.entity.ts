@@ -9,6 +9,8 @@ import {
   HasMany,
 } from 'sequelize-typescript';
 import { FactRevenueAnalysis } from '../../fact-revenue-analysis/entities/fact-revenue-analysis.entity';
+import { FactTripPerformance } from 'src/fact-trip-performance/entities/fact-trip-performance.entity';
+import { FactBookingStatus } from 'src/fact-booking-status/entities/fact-booking-status.entity';
 
 @Table({
   tableName: 'DimTour',
@@ -84,5 +86,11 @@ export class DimTour extends Model<DimTour> {
   IsCurrent!: string;
 
   @HasMany(() => FactRevenueAnalysis)
-  Facts?: FactRevenueAnalysis[];
+  FactsRevenue?: FactRevenueAnalysis[];
+
+  @HasMany(() => FactTripPerformance)
+  FactsTrip?: FactTripPerformance[];
+
+  @HasMany(() => FactBookingStatus)
+  FactsBookingStatus?: FactBookingStatus[];
 }

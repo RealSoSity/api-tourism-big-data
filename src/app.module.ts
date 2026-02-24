@@ -8,6 +8,10 @@ import { FactRevenueAnalysisModule } from './fact-revenue-analysis/fact-revenue-
 import { DimDateModule } from './dim-date/dim-date.module';
 import { DimTourModule } from './dim-tour/dim-tour.module';
 import { DimCustomerModule } from './dim-customer/dim-customer.module';
+import { FactTripPerformanceModule } from './fact-trip-performance/fact-trip-performance.module';
+import { DimGuideModule } from './dim-guide/dim-guide.module';
+import { DimBookingModule } from './dim-booking/dim-booking.module';
+import { FactBookingStatusModule } from './fact-booking-status/fact-booking-status.module';
 
 @Module({
   imports: [
@@ -26,6 +30,10 @@ import { DimCustomerModule } from './dim-customer/dim-customer.module';
     DimDateModule,
     DimTourModule,
     DimCustomerModule,
+    FactTripPerformanceModule,
+    DimGuideModule,
+    DimBookingModule,
+    FactBookingStatusModule,
   ],
   controllers: [AppController],
   providers: [AppService],
