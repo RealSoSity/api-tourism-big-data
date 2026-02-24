@@ -46,7 +46,7 @@ export class FactBookingStatus extends Model<FactBookingStatus> {
   @Column({ field: 'GUIDEKEY', type: DataType.INTEGER, allowNull: true })
   GuideKey!: number | null;
 
-  @Column({ type: DataType.INTEGER, allowNull: true })
+  @Column({ field: 'TOTALBOOKINGS', type: DataType.INTEGER, allowNull: true })
   TotalBookings!: number | null;
 
   @Column({ field: 'CANCELCOUNT', type: DataType.INTEGER, allowNull: true })
