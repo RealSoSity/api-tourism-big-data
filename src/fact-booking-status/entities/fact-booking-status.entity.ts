@@ -49,7 +49,7 @@ export class FactBookingStatus extends Model<FactBookingStatus> {
   @Column({ type: DataType.INTEGER, allowNull: true })
   TotalBookings!: number | null;
 
-  @Column({ field: 'CALCENCOUNT', type: DataType.INTEGER, allowNull: true })
+  @Column({ field: 'CANCELCOUNT', type: DataType.INTEGER, allowNull: true })
   CancelCount!: number | null;
 
   @BelongsTo(() => DimDate) Date?: DimDate;
