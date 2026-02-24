@@ -1,26 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { CreateFactBookingStatusDto } from './dto/create-fact-booking-status.dto';
-import { UpdateFactBookingStatusDto } from './dto/update-fact-booking-status.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { FactBookingStatus } from './entities/fact-booking-status.entity';
 
 @Injectable()
 export class FactBookingStatusService {
-  create(createFactBookingStatusDto: CreateFactBookingStatusDto) {
-    return 'This action adds a new factBookingStatus';
+  constructor(
+    @InjectModel(FactBookingStatus)
+    private factModel: typeof FactBookingStatus,
+  ) {}
+
+  async findAll() {
+    return await this.factModel.findAll({ order: [['FACTID', 'DESC']] });
   }
 
-  findAll() {
-    return `This action returns all factBookingStatus`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} factBookingStatus`;
-  }
-
-  update(id: number, updateFactBookingStatusDto: UpdateFactBookingStatusDto) {
-    return `This action updates a #${id} factBookingStatus`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} factBookingStatus`;
+  async findOne(id: number) {
+    const factData = await this.factModel.findOne({ where: { FactID: id } });
+    if (!factData) {
+      throw new NotFoundException(`Not found FactBookingStatus ${id}`);
+    }
+    return factData;
   }
 }

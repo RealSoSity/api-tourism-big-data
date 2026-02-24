@@ -1,26 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { CreateFactTripPerformanceDto } from './dto/create-fact-trip-performance.dto';
-import { UpdateFactTripPerformanceDto } from './dto/update-fact-trip-performance.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { FactTripPerformance } from './entities/fact-trip-performance.entity';
 
 @Injectable()
 export class FactTripPerformanceService {
-  create(createFactTripPerformanceDto: CreateFactTripPerformanceDto) {
-    return 'This action adds a new factTripPerformance';
+  constructor(
+    @InjectModel(FactTripPerformance)
+    private factModel: typeof FactTripPerformance,
+  ) {}
+
+  async findAll() {
+    return await this.factModel.findAll({ order: [['FACTID', 'DESC']] });
   }
 
-  findAll() {
-    return `This action returns all factTripPerformance`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} factTripPerformance`;
-  }
-
-  update(id: number, updateFactTripPerformanceDto: UpdateFactTripPerformanceDto) {
-    return `This action updates a #${id} factTripPerformance`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} factTripPerformance`;
+  async findOne(id: number) {
+    const data = await this.factModel.findOne({ where: { FactID: id } });
+    if (!data) {
+      throw new NotFoundException(`Not found Fact ${id}`);
+    }
+    return data;
   }
 }
