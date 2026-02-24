@@ -10,7 +10,7 @@ export class FactRevenueAnalysisService {
   ) {}
 
   findAll() {
-    return this.factRevenueModel.findAll();
+    return this.factRevenueModel.findAll({ order: [['FACTID', 'DESC']] });
   }
 
   async findOne(id: number) {
