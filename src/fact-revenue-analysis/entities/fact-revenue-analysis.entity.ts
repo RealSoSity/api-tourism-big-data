@@ -23,28 +23,28 @@ export class FactRevenueAnalysis extends Model<FactRevenueAnalysis> {
   @PrimaryKey
   @AutoIncrement
   @Column({ field: 'FACTID', type: DataType.INTEGER })
-  declare FactID: number;
+  declare FACTID: number;
 
   @Index
   @ForeignKey(() => DimDate)
   @Column({ field: 'DATEKEY', type: DataType.INTEGER, allowNull: true })
-  declare DateKey: number | null;
+  declare DATEKEY: number | null;
 
   @Index
   @ForeignKey(() => DimTour)
   @Column({ field: 'TOURKEY', type: DataType.INTEGER, allowNull: true })
-  declare TourKey: number | null;
+  declare TOURKEY: number | null;
 
   @Index
   @ForeignKey(() => DimCustomer)
   @Column({ field: 'CUSTOMERKEY', type: DataType.INTEGER, allowNull: true })
-  declare CustomerKey: number | null;
+  declare CUSTOMERKEY: number | null;
 
   @Column({ field: 'BOOKINGCOUNT', type: DataType.INTEGER, allowNull: true })
-  declare BookingCount: number | null;
+  declare BOOKINGCOUNT: number | null;
 
   @Column({ field: 'TOTALPAX', type: DataType.INTEGER, allowNull: true })
-  declare TotalPax: number | null;
+  declare TOTALPAX: number | null;
 
   // Oracle NUMBER(12,2) maps cleanly to DECIMAL
   @Column({
@@ -52,14 +52,14 @@ export class FactRevenueAnalysis extends Model<FactRevenueAnalysis> {
     type: DataType.DECIMAL(12, 2),
     allowNull: true,
   })
-  declare TotalRevenue: string | null;
+  declare TOTALREVENUE: string | null;
 
   @Column({
     field: 'GROSSPROFIT',
     type: DataType.DECIMAL(12, 2),
     allowNull: true,
   })
-  declare GrossProfit: string | null;
+  declare GROSSPROFIT: string | null;
 
   @BelongsTo(() => DimDate)
   Date?: DimDate;

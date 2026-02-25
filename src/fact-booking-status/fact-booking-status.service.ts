@@ -14,7 +14,7 @@ export class FactBookingStatusService {
   }
 
   async findOne(id: number) {
-    const factData = await this.factModel.findOne({ where: { FactID: id } });
+    const factData = await this.factModel.findOne({ where: { FACTID: id } });
     if (!factData) {
       throw new NotFoundException(`Not found FactBookingStatus ${id}`);
     }

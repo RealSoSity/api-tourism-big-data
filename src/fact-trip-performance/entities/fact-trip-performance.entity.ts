@@ -22,49 +22,49 @@ export class FactTripPerformance extends Model<FactTripPerformance> {
   @PrimaryKey
   @AutoIncrement
   @Column({ field: 'FACTID', type: DataType.INTEGER })
-  FactID!: number;
+  FACTID!: number;
 
   @Index
   @ForeignKey(() => DimDate)
   @Column({ field: 'DATEKEY', type: DataType.INTEGER, allowNull: true })
-  DateKey!: number | null;
+  DATEKEY!: number | null;
 
   @Index
   @ForeignKey(() => DimTour)
   @Column({ field: 'TOURKEY', type: DataType.INTEGER, allowNull: true })
-  TourKey!: number | null;
+  TOURKEY!: number | null;
 
   @Index
   @ForeignKey(() => DimGuide)
   @Column({ field: 'GUIDEKEY', type: DataType.INTEGER, allowNull: true })
-  GuideKey!: number | null;
+  GUIDEKEY!: number | null;
 
   @Column({ field: 'TOTALTRIPS', type: DataType.INTEGER, allowNull: true })
-  TotalTrips!: number | null;
+  TOTALTRIPS!: number | null;
 
   @Column({ field: 'PAXPERTRIP', type: DataType.INTEGER, allowNull: true })
-  PaxPerTrip!: number | null;
+  PAXPERTRIP!: number | null;
 
   @Column({
     field: 'TOTALTRIPCOST',
     type: DataType.DECIMAL(12, 2),
     allowNull: true,
   })
-  TotalTripCost!: string | null;
+  TOTALTRIPCOST!: string | null;
 
   @Column({
     field: 'TOTALTRIPREV',
     type: DataType.DECIMAL(12, 2),
     allowNull: true,
   })
-  TotalTripRev!: string | null;
+  TOTALTRIPREV!: string | null;
 
   @Column({
     field: 'TRIPPROFIT',
     type: DataType.DECIMAL(12, 2),
     allowNull: true,
   })
-  TripProfit!: string | null;
+  TRIPPROFIT!: string | null;
 
   @BelongsTo(() => DimDate) Date?: DimDate;
   @BelongsTo(() => DimTour) Tour?: DimTour;

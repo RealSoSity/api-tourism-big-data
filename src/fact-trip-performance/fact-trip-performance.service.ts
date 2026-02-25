@@ -14,7 +14,7 @@ export class FactTripPerformanceService {
   }
 
   async findOne(id: number) {
-    const data = await this.factModel.findOne({ where: { FactID: id } });
+    const data = await this.factModel.findOne({ where: { FACTID: id } });
     if (!data) {
       throw new NotFoundException(`Not found Fact ${id}`);
     }

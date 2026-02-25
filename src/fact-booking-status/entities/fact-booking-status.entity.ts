@@ -23,34 +23,34 @@ export class FactBookingStatus extends Model<FactBookingStatus> {
   @PrimaryKey
   @AutoIncrement
   @Column({ field: 'FACTID', type: DataType.INTEGER })
-  FactID!: number;
+  FACTID!: number;
 
   @Index
   @ForeignKey(() => DimDate)
   @Column({ field: 'DATEKEY', type: DataType.INTEGER, allowNull: true })
-  DateKey!: number | null;
+  DATEKEY!: number | null;
 
   @Index
   @ForeignKey(() => DimTour)
   @Column({ field: 'TOURKEY', type: DataType.INTEGER, allowNull: true })
-  TourKey!: number | null;
+  TOURKEY!: number | null;
 
   // DimBooking PK is BookingKey
   @Index
   @ForeignKey(() => DimBooking)
   @Column({ field: 'BOOKINGMETAKEY', type: DataType.INTEGER, allowNull: true })
-  BookingMetaKey!: number | null;
+  BOOKINGMETAKEY!: number | null;
 
   @Index
   @ForeignKey(() => DimGuide)
   @Column({ field: 'GUIDEKEY', type: DataType.INTEGER, allowNull: true })
-  GuideKey!: number | null;
+  GUIDEKEY!: number | null;
 
   @Column({ field: 'TOTALBOOKINGS', type: DataType.INTEGER, allowNull: true })
-  TotalBookings!: number | null;
+  TOTALBOOKINGS!: number | null;
 
   @Column({ field: 'CANCELCOUNT', type: DataType.INTEGER, allowNull: true })
-  CancelCount!: number | null;
+  CANCELCOUNT!: number | null;
 
   @BelongsTo(() => DimDate) Date?: DimDate;
   @BelongsTo(() => DimTour) Tour?: DimTour;

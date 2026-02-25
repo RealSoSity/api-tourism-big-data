@@ -16,7 +16,7 @@ export class FactRevenueAnalysisService {
   async findOne(id: number) {
     const factRev = await this.factRevenueModel.findOne({
       where: {
-        FactID: id,
+        FACTID: id,
       },
     });
 

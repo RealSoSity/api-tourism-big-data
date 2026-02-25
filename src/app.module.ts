@@ -12,6 +12,7 @@ import { FactTripPerformanceModule } from './fact-trip-performance/fact-trip-per
 import { DimGuideModule } from './dim-guide/dim-guide.module';
 import { DimBookingModule } from './dim-booking/dim-booking.module';
 import { FactBookingStatusModule } from './fact-booking-status/fact-booking-status.module';
+import { IotTelemetryModule } from './iot-telemetry/iot-telemetry.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { FactBookingStatusModule } from './fact-booking-status/fact-booking-stat
     DimGuideModule,
     DimBookingModule,
     FactBookingStatusModule,
+    IotTelemetryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
